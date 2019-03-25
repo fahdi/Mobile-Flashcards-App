@@ -15,7 +15,6 @@ class AddDeck extends Component {
         title: '',
     }
     whenChange = (value) => {
-        console.log(this.state.title)
         this.setState({ title: value })
     }
     whenSubmit = () => {

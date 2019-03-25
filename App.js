@@ -4,7 +4,7 @@ import TabNavigator from './Components/Navigations/TabNavigator';
 import { Provider } from "react-redux";
 import store from "./Store";
 
-export default class App extends React.Component {
+class App extends React.Component {
   state = { showNav: true }
   componentDidMount() {
 
@@ -67,3 +67,5 @@ const styles = StyleSheet.create({
     fontFamily: 'monospace',
   }
 });
+
+export default App;
