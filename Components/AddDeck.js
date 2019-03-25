@@ -66,12 +66,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     card: {
-        minHeight: 200,
-        width: 310,
+        minHeight: 300,
+        width: 350,
         borderColor: "grey",
         borderStyle: "solid",
         borderWidth: 1,
-        borderRadius: 5
+        borderRadius: 15
     },
     container: {
         flex: 1,

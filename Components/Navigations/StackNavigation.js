@@ -14,15 +14,11 @@ const StackNavigation = createStackNavigator(
     },
         Deck: {
             screen: Deck,
-            navigationOptions: {
-                title: "Deck"
-            }
         },
         'Add Card': {
             screen: AddCard,
             navigationOptions: {
                 title: "Add Card",
-                headerBackImage: () => <Entypo name='back' size={30} color="blue" />,
             }
         },
     },
