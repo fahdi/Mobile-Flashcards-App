@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from "react-native";
 
-const Decklist = (props) => {
+const DeckList = (props) => {
     const {title, num} = props;
     return (
         <View style={styles.container}>
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
     num: { color: "black", fontSize: 20, fontFamily: 'monospace',},
 })
 
-export default Decklist;
+export default DeckList;

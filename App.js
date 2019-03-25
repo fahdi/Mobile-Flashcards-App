@@ -13,7 +13,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.showNav ? (<TabNavigator />) : (
+        {this.state.showNav ? (<View><TabNavigator /></View>) : (
           <View style={styles.welcome}>
           <Image
           style={{width: 300, height: 300}}

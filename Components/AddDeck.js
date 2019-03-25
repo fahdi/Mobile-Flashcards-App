@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     ButtonContainer: {
         justifyContent: "center",
         backgroundColor: "#424242",
-        borderColor: "black",
+        borderColor: '#424242',
         borderStyle: "solid",
         borderWidth: 2,
         borderRadius: 2,

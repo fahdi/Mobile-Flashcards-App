@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet} from "react-native";
-import Decklist from './ReusableComponents/Decklist';
+import DeckList from './ReusableComponents/DeckList';
 
 class Decks extends Component {
     state = {}
@@ -8,10 +8,10 @@ class Decks extends Component {
         return (
             <View style={styles.container}>
             <View style={styles.semiConatiner}>
-                <Decklist title="React Native" num="1" />
-                <Decklist title="React" num="5" />
-                <Decklist title="ES6" num="3" />
-                <Decklist title="JavaScript" num="2" />
+                <DeckList title="React Native" num="1" />
+                <DeckList title="React" num="5" />
+                <DeckList title="ES6" num="3" />
+                <DeckList title="JavaScript" num="2" />
             </View>
             </View>
         );

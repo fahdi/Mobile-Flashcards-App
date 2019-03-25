@@ -41,4 +41,4 @@ const TabNavigator = createMaterialTopTabNavigator(
     },
 );
 
-export default TabNavigationExample = createAppContainer(TabNavigator);
+export default TabNavigation = createAppContainer(TabNavigator);
