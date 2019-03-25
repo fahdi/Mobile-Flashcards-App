@@ -6,6 +6,7 @@ const Deck = (props) => {
             <Text>
                 Deck start quiz add card card number deck title
             </Text>
+            
             </View>
     );
 }

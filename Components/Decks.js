@@ -7,7 +7,7 @@ class Decks extends Component {
     render() {
         return (
             <View style={styles.container}>
-            <View style={styles.semiConatiner}>
+            <View style={styles.semiContainer}>
                 <DeckList title="React Native" num="1" />
                 <DeckList title="React" num="5" />
                 <DeckList title="ES6" num="3" />
