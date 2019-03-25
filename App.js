@@ -1,35 +1,38 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import TabNavigator from './Components/Navigations/TabNavigator';
+import { Provider } from "react-redux";
+import store from "./Store";
 
 export default class App extends React.Component {
-  state = {showNav: true}
+  state = { showNav: true }
   componentDidMount() {
 
   }
   whenPress = () => {
-    this.setState({showNav: true})
+    this.setState({ showNav: true })
   }
   render() {
-  
     return (
-      <View style={styles.container}>
-        {this.state.showNav ? (<View style={{flex:1}}>
-          <TabNavigator />
+      <Provider store={store}>
+        <View style={styles.container}>
+          {this.state.showNav ? (<View style={{ flex: 1 }}>
+            <TabNavigator />
           </View>) : (
-          <View style={styles.welcome}>
-          <Image
-          style={{width: 300, height: 300}}
-          source={require('./Components/images/2.png')}
-        />
-        <Text style={styles.WelcomeText}>
-          Welcome To Flashcards App
+              <View style={styles.welcome}>
+                <Image
+                  style={{ width: 300, height: 300 }}
+                  source={require('./Components/images/2.png')}
+                />
+                <Text style={styles.WelcomeText}>
+                  Welcome To Flashcards App
         </Text>
-        <TouchableOpacity style={styles.buttonTouchable} onPress={this.whenPress}>
-          <Text style={styles.buttonText}> Click here to continue </Text>
-        </TouchableOpacity>
-        </View>)}
-      </View>
+                <TouchableOpacity style={styles.buttonTouchable} onPress={this.whenPress}>
+                  <Text style={styles.buttonText}> Click here to continue </Text>
+                </TouchableOpacity>
+              </View>)}
+        </View>
+      </Provider>
     );
   }
 }
@@ -41,18 +44,18 @@ const styles = StyleSheet.create({
   },
   buttonTouchable: {
     display: 'flex',
-    width: 200, 
+    width: 200,
     height: 30,
-    backgroundColor:'white', 
-    borderRadius: 5, 
+    backgroundColor: 'white',
+    borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonText: {
-    color:'black', 
+    color: 'black',
   },
   welcome: {
-    flex:1,
+    flex: 1,
     backgroundColor: '#212121',
     alignItems: 'center',
     justifyContent: 'center',

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
     View,
     Text,
@@ -7,6 +8,7 @@ import {
     TouchableOpacity,
     KeyboardAvoidingView
 } from "react-native";
+import { Add_Deck } from '../Store/Actions/DeckActions';
 
 class AddDeck extends Component {
     state = {
@@ -17,7 +19,8 @@ class AddDeck extends Component {
         this.setState({ title: value })
     }
     whenSubmit = () => {
-        this.setState({ title: '' })
+        this.props.addDeck(this.state.title);
+        this.setState({ title: '' });
     }
     render() {
         return (
@@ -105,4 +108,11 @@ const styles = StyleSheet.create({
         alignItems: "center"
     }
 })
-export default AddDeck;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addDeck: (title) => dispatch(Add_Deck(title)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AddDeck);
