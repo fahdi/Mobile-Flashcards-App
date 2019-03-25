@@ -34,18 +34,19 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    fontFamily: 'monospace',
   },
   buttonTouchable: {
+    display: 'flex',
     width: 200, 
     height: 30,
     backgroundColor:'white', 
     borderRadius: 5, 
-    textAlign: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
     color:'black', 
-    flex:1,
-    justifyContent: 'center'
   },
   welcome: {
     flex:1,

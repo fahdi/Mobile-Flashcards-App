@@ -1,21 +1,20 @@
 import React from 'react';
-
 import { AntDesign } from '@expo/vector-icons'
 import { createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
 import AddDeck from '../AddDeck';
 import Decks from "../Decks";
 const TabNavigator = createMaterialTopTabNavigator(
     {
-        Decks: {
+        'Decks': {
             screen: Decks,
             navigationOptions: {
-                tabBarIcon: () => <AntDesign name='addfolder' size={25} color="white" />
+                tabBarIcon: () => <AntDesign name='folder1' size={25} color="white" />
             }
         },
-        AddDeck: {
+        'Add Deck': {
             screen: AddDeck,
             navigationOptions: {
-                tabBarIcon: () => <AntDesign name='info' size={25} color="white" />,
+                tabBarIcon: () => <AntDesign name='addfolder' size={25} color="white" />,
             }
         },
     },
