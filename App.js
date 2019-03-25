@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import TabNavigator from './Components/Navigations/TabNavigator';
 
 export default class App extends React.Component {
-  state = {showNav: false}
+  state = {showNav: true}
   componentDidMount() {
 
   }
