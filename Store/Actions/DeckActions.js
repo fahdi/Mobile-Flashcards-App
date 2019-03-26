@@ -6,8 +6,8 @@ export const Add_Deck = (title) => {
             if (!err) {
                 dispatch({ type: Types.addDeck, newDeck: { title: title, questions: [] } })
             }
-            else{
-                dispatch({type: Types.errorOfAddDecks})
+            else {
+                dispatch({ type: Types.errorOfAddDeck })
             }
         })
     }
@@ -15,22 +15,31 @@ export const Add_Deck = (title) => {
 export const Get_Deck = () => {
     return dispatch => {
         AsyncStorage.getAllKeys().then(v => {
-            AsyncStorage.multiGet(v , (err, data) => {
-                if(!err){
-                const TemArr = []
-                data.map(d => {
-                    let obj = JSON.parse(d[1])
-                    TemArr.push(obj)
-                })
-                dispatch({ type: Types.getDecks, all_Decks: TemArr })
+            AsyncStorage.multiGet(v, (err, data) => {
+                if (!err) {
+                    const TemArr = []
+                    data.map(d => {
+                        let obj = JSON.parse(d[1])
+                        TemArr.push(obj)
+                    })
+                    dispatch({ type: Types.getDecks, all_Decks: TemArr })
                 }
-                else{
-                    dispatch({type: Types.errorOfGetDecks})
+                else {
+                    dispatch({ type: Types.errorOfGetDecks })
                 }
             })
         })
     }
 }
+
+export const ADD_CARD = (deck, cardObj) => {
+    return dispatch => {
+        const Obj = { questions: [...deck.questions, cardObj] }
+        AsyncStorage.mergeItem(deck.title, JSON.stringify(Obj))
+        dispatch({ type: Types.addcard, newCard: { title: deck.title, questions: [...deck.questions, cardObj] } })
+    }
+}
+
 export const Delete_Deck = (key, id) => {
     return dispatch => {
 

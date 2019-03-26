@@ -24,7 +24,7 @@ class AddDeck extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <KeyboardAvoidingView>
+                <KeyboardAvoidingView behavior="position">
                     <View style={styles.card}>
                         <View style={styles.titleContainer}>
                             <Text style={styles.titleText}>
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
         borderColor: "grey",
         borderStyle: "solid",
         borderWidth: 1,
-        borderRadius: 15
+        borderRadius: 15,
+        elevation: 1,
     },
     container: {
         flex: 1,
@@ -97,13 +98,14 @@ const styles = StyleSheet.create({
     },
     ButtonContainer: {
         justifyContent: "center",
-        backgroundColor: "#424242",
-        borderColor: '#424242',
+        backgroundColor: "black",
+        borderColor: 'black',
         borderStyle: "solid",
-        borderWidth: 2,
-        borderRadius: 2,
-        width: 90,
+        borderWidth: 5,
+        borderRadius: 5,
+        width: 150,
         height: 30,
+        fontSize: 15,
         alignItems: "center"
     }
 })
@@ -114,4 +116,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(AddDeck);
+const mapStateToProps = (state) => {
+    return {
+        
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AddDeck);

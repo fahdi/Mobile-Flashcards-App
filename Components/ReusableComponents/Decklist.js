@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         alignItems: "center",
         height: 100,
+        borderRadius: 5,
     },
     semiContainers: {
         flex: 1,

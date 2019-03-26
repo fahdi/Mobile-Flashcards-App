@@ -7,7 +7,8 @@ class Deck extends Component {
         title: navigation.state.params.id
     })
     whenAddCard = () => {
-
+        const navi = this.props.navigation;
+        navi.navigate("Add Card", { id: navi.state.params.id })
     }
     whenStartQuiz = () => {
 
@@ -66,10 +67,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderWidth: 1,
         borderStyle: "solid",
-        borderColor: "black",
+        borderColor: "grey",
         minWidth: 300,
         minHeight: 200,
-        borderRadius: 15
+        borderRadius: 15,
+        elevation: 1,
     },
     numOfCards: {
         fontSize: 20,

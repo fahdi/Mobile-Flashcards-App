@@ -7,6 +7,8 @@ import {
     TouchableOpacity,
     KeyboardAvoidingView
 } from "react-native";
+import { connect } from 'react-redux';
+import { ADD_CARD } from '../../Store/Actions/DeckActions';
 
 class AddCard extends Component {
     state = {
@@ -14,12 +16,16 @@ class AddCard extends Component {
         ans: '',
     }
     whenSubmit = () => {
+        this.props.addCard(this.props.deck, {question: this.state.que, answer: this.state.ans});
         this.setState({ que: '', ans: ''})
     }
+    static navigationOptions = ({ navigation }) => ({
+        title: navigation.state.params.id
+    })
     render() {
         return (
             <View style={styles.container}>
-                <KeyboardAvoidingView>
+                <KeyboardAvoidingView behavior="position">
                     <View style={styles.card}>
                         <View style={styles.titleContainer}>
                             <Text style={styles.titleText}>
@@ -53,6 +59,13 @@ class AddCard extends Component {
         );
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addCard : (deck, cardobj) => dispatch(ADD_CARD(deck, cardobj)),
+    }
+}
+
 const styles = StyleSheet.create({
     titleContainer: {
         flex: 1,
@@ -68,12 +81,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     card: {
-        minHeight: 200,
-        width: 310,
+        minHeight: 300,
+        width: 350,
         borderColor: "grey",
         borderStyle: "solid",
         borderWidth: 1,
-        borderRadius: 5
+        borderRadius: 15,
+        elevation: 1,
     },
     container: {
         flex: 1,
@@ -99,14 +113,23 @@ const styles = StyleSheet.create({
     },
     ButtonContainer: {
         justifyContent: "center",
-        backgroundColor: "#424242",
-        borderColor: "#424242",
+        backgroundColor: "black",
+        borderColor: 'black',
         borderStyle: "solid",
-        borderWidth: 2,
-        borderRadius: 2,
-        width: 90,
+        borderWidth: 5,
+        borderRadius: 5,
+        width: 150,
         height: 30,
+        fontSize: 15,
         alignItems: "center"
     }
 })
-export default AddCard;
+
+const mapStateToProps = (state, ownProps) => {
+    const id = ownProps.navigation.state.params.id;
+    const deck = state.deck.allDecks.find(v => v.title === id)
+    return {
+        deck,
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(AddCard);
