@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { connect } from 'react-redux';
+import { Delete_Deck } from '../../Store/Actions/DeckActions';
 
 class Deck extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -14,12 +15,14 @@ class Deck extends Component {
 
     }
     whenDelete = () => {
-        
+        this.props.delDeck(this.props.navigation.state.params.id)
+        this.props.navigation.navigate("Decks")
     }
     render() {
         const {specificDeck} = this.props;
         return (
-            <View style={styles.container}>
+            <View>
+            {specificDeck ? (<View style={styles.container}>
                 <View style={styles.semiContainer}>
                 <View >
                 <Text style={styles.numOfCards}>
@@ -42,6 +45,7 @@ class Deck extends Component {
                     </TouchableOpacity>
                 </View>
                 </View>
+            </View>) : (<View></View>)}
             </View>
         );
     }
@@ -53,6 +57,13 @@ const mapStateToProps = (state, ownProps) => {
         specificDeck
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        delDeck: (title) => dispatch(Delete_Deck(title)),
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
        display: "flex",
@@ -93,4 +104,4 @@ const styles = StyleSheet.create({
         fontSize: 15
     }
 })
-export default connect(mapStateToProps)(Deck);
+export default connect(mapStateToProps, mapDispatchToProps)(Deck);
