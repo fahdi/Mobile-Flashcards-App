@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({ deck }) => {
-    console.log(deck.allDecks)
     return {
         allDecks: deck.allDecks,
     }

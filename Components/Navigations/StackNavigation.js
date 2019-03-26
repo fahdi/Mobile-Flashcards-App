@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 import Deck from '../ReusableComponents/Deck';
 import AddCard from '../ReusableComponents/AddCard';
 import Decks from "../Decks"
+import Quizes from '../Quizes';
 const StackNavigation = createStackNavigator(
     {   'Decks': {
         screen: Decks,
@@ -17,6 +18,9 @@ const StackNavigation = createStackNavigator(
         },
         'Add Card': {
             screen: AddCard,
+        },
+        'Quizes': {
+            screen: Quizes,
         },
     },
 );

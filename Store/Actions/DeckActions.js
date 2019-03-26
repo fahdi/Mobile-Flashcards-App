@@ -42,7 +42,7 @@ export const ADD_CARD = (deck, cardObj) => {
 
 export const Delete_Deck = (title) => {
     return dispatch => {
-        AsyncStorage.removeItem(title, (err, data) => console.log(err,data))
+        AsyncStorage.removeItem(title)
         dispatch({type: Types.deleteDeck, id: title})
     }
 }

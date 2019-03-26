@@ -31,7 +31,6 @@ const deckReducer = (state = initState, action) => {
         const TemArrD = [...state.allDecks];
             const i = TemArrD.findIndex(v => v.title === action.id)
             TemArrD.splice(i, 1)
-            console.log(TemArrD)
         return state = {
             ...state,
             allDecks: TemArrD,

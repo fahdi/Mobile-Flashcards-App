@@ -18,6 +18,7 @@ class AddCard extends Component {
     whenSubmit = () => {
         this.props.addCard(this.props.deck, {question: this.state.que, answer: this.state.ans});
         this.setState({ que: '', ans: ''})
+        this.props.navigation.navigate("Deck", {id: this.props.deck.title})
     }
     static navigationOptions = ({ navigation }) => ({
         title: navigation.state.params.id

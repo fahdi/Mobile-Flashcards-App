@@ -20,6 +20,7 @@ class AddDeck extends Component {
     whenSubmit = () => {
         this.props.addDeck(this.state.title);
         this.setState({ title: '' });
+        this.props.navigation.navigate("Deck", { id: this.state.title })
     }
     render() {
         return (

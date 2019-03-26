@@ -7,45 +7,61 @@ class Deck extends Component {
     static navigationOptions = ({ navigation }) => ({
         title: navigation.state.params.id
     })
+    state = {
+        noCards: false,
+    }
     whenAddCard = () => {
         const navi = this.props.navigation;
         navi.navigate("Add Card", { id: navi.state.params.id })
     }
     whenStartQuiz = () => {
-
+        if (this.props.specificDeck.questions.length !== 0) {
+            const navi = this.props.navigation;
+            navi.navigate("Quizes", { id: navi.state.params.id })
+        }
+        else { 
+            this.setState({noCards: true})
+        }
     }
     whenDelete = () => {
         this.props.delDeck(this.props.navigation.state.params.id)
         this.props.navigation.navigate("Decks")
     }
     render() {
-        const {specificDeck} = this.props;
+        const { specificDeck } = this.props;
         return (
             <View>
-            {specificDeck ? (<View style={styles.container}>
-                <View style={styles.semiContainer}>
-                <View >
-                <Text style={styles.numOfCards}>
-                    Total Cards: {specificDeck.questions.length}
-                </Text>
-                </View>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={this.whenStartQuiz}>
-                        <Text style={styles.buttonText}>Start Quiz</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={this.whenAddCard}>
-                        <Text style={styles.buttonText}>Add Card</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={this.whenDelete}>
-                        <Text style={styles.buttonText}>Delete Deck</Text>
-                    </TouchableOpacity>
-                </View>
-                </View>
-            </View>) : (<View></View>)}
+                {specificDeck ? (<View style={styles.container}>
+                    <View style={styles.semiContainer}>
+                        <View >
+                            <Text style={styles.numOfCards}>
+                                Total Cards: {specificDeck.questions.length}
+                            </Text>
+                        </View>
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity onPress={this.whenStartQuiz}>
+                                <Text style={styles.buttonText}>Start Quiz</Text>
+                            </TouchableOpacity>
+                        </View>
+                        {this.state.noCards && <View style={styles.showMessage}>
+                            <TouchableOpacity onPress={() => this.setState({noCards: false})}>
+                            <Text style={styles.showMessageText}>
+                            Sorry, you can't take a quiz because there are no cards in the deck.
+                            </Text> 
+                            </TouchableOpacity>
+                        </View>}
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity onPress={this.whenAddCard}>
+                                <Text style={styles.buttonText}>Add Card</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity onPress={this.whenDelete}>
+                                <Text style={styles.buttonText}>Delete Deck</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>) : (<View></View>)}
             </View>
         );
     }
@@ -66,15 +82,15 @@ const mapDispatchToProps = (dispatch) => {
 
 const styles = StyleSheet.create({
     container: {
-       display: "flex",
-       justifyContent: "center",
-       alignItems: "center",
-       minHeight: 400,
-       paddingTop: 20
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: 400,
+        paddingTop: 20
     },
     semiContainer: {
         flex: 1,
-        justifyContent:"space-around",
+        justifyContent: "space-around",
         alignItems: "center",
         borderWidth: 1,
         borderStyle: "solid",
@@ -102,6 +118,22 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "white",
         fontSize: 15
-    }
+    },
+    showMessage: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderColor: "#757575",
+        borderRadius: 10,
+        borderStyle: "solid",
+        borderWidth: 5,
+        width: 250,
+        height: 50,
+        backgroundColor: "#757575"
+    },
+    showMessageText: {
+        color: "white",
+        fontSize: 15
+    },
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Deck);
