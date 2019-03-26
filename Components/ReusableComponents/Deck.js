@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         width: 190,
         height: 45,
-        backgroundColor: "black"
+        backgroundColor: "black",
+        elevation: 1,
     },
     buttonText: {
         color: "white",

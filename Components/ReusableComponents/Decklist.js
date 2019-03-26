@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         height: 100,
         borderRadius: 5,
+        elevation: 1,
     },
     semiContainers: {
         flex: 1,

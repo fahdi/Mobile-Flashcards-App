@@ -36,14 +36,14 @@ class AddCard extends Component {
                         <View style={styles.semiContainer}>
                             <View style={styles.TextContainer}>
                                 <TextInput
-                                    placeholder="Enter Question"
+                                    placeholder="Enter question"
                                     value={this.state.que}
                                     onChangeText={(value) => {this.setState({que: value})}}
                                 />
                             </View>
                             <View style={styles.TextContainer}>
                                 <TextInput
-                                    placeholder="Enter Answer"
+                                    placeholder="Enter answer like 'correct' or 'incorrect' "
                                     value={this.state.ans}
                                     onChangeText={(value) => {this.setState({ans: value})}}
                                 />
