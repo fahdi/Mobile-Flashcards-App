@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {View, Text, StyleSheet} from "react-native";
 import Quiz from './ReusableComponents/Quiz';
+import Result from './ReusableComponents/Result';
 
 class Quizes extends Component {
 
@@ -28,7 +29,6 @@ class Quizes extends Component {
         } 
     }
     next = (quenum) => {
-        console.log(quenum)
          if(quenum === this.props.Questions.length){
             this.setState({lastQuestion: true, incorrect: false, correct: false})
         }
@@ -47,15 +47,29 @@ class Quizes extends Component {
             this.setState({incorrect: true})
         }
     }
+    whenBackToStart = () => {
+        const navi = this.props.navigation;
+        navi.navigate("Deck", {id: navi.state.params.id})
+    }
+    whenReStart = () => {
+        this.setState({incorrect: false, 
+            correct: false,
+            lastQuestion: false,
+            score: 0,
+            questionNumber: 0,})
+    }
     render() {
         const {questionNumber, incorrect, correct} = this.state;
         const {Questions} = this.props;
         return (
             <View style={styles.container}>
                 {this.state.lastQuestion ? (
-                <View>
-                <Text>No more Questions {this.state.score}</Text>
-                </View>
+                <Result 
+                score={this.state.score} 
+                total={Questions.length} 
+                reStart={this.whenReStart}
+                backToDeck={this.whenBackToStart}
+                />
                 ) : (
                 <Quiz 
                 num={questionNumber+1} 
@@ -76,7 +90,7 @@ class Quizes extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 30,
+        paddingTop: 20,
     }
 })
 

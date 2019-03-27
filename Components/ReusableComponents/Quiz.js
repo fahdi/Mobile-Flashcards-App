@@ -88,8 +88,9 @@ const styles = StyleSheet.create({
     questionContainer: {
         minHeight: 100,
         maxHeight: 200,
-        /* minWidth: 180,
-        maxWidth: 280, */
+        minWidth: 180,
+        width: 250,
+        maxWidth: 280,
         display:"flex",
         justifyContent: "center",
         alignItems: "center",
