@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     KeyboardAvoidingView
 } from "react-native";
-import { Add_Deck } from '../Store/Actions/DeckActions';
+import { Add_Deck, Get_Deck } from '../Store/Actions/DeckActions';
 
 class AddDeck extends Component {
     state = {
@@ -21,6 +21,7 @@ class AddDeck extends Component {
         this.props.addDeck(this.state.title);
         this.setState({ title: '' });
         this.props.navigation.navigate("Deck", { id: this.state.title })
+        this.props.getDeck(this.state.title);
     }
     render() {
         return (
@@ -114,6 +115,7 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = (dispatch) => {
     return {
         addDeck: (title) => dispatch(Add_Deck(title)),
+        getDeck: (title) => dispatch(Get_Deck(title)),
     }
 }
 

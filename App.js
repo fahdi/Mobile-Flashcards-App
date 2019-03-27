@@ -5,10 +5,7 @@ import { Provider } from "react-redux";
 import store from "./Store";
 
 class App extends React.Component {
-  state = { showNav: true }
-  componentDidMount() {
-
-  }
+  state = { showNav: false }
   whenPress = () => {
     this.setState({ showNav: true })
   }
@@ -26,7 +23,7 @@ class App extends React.Component {
                 />
                 <Text style={styles.WelcomeText}>
                   Welcome To Flashcards App
-        </Text>
+                </Text>
                 <TouchableOpacity style={styles.buttonTouchable} onPress={this.whenPress}>
                   <Text style={styles.buttonText}> Click here to continue </Text>
                 </TouchableOpacity>

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { connect } from 'react-redux';
 import { Delete_Deck } from '../../Store/Actions/DeckActions';
+import Loader from './Loader';
 
 class Deck extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -28,10 +29,12 @@ class Deck extends Component {
         this.props.navigation.navigate("Decks")
     }
     render() {
-        const { specificDeck } = this.props;
+        const { specificDeck, loader } = this.props;
         return (
             <View>
-                {specificDeck ? (<View style={styles.container}>
+                {
+                    loader ? (<Loader />) : (<Fragment>
+                        {specificDeck ? (<View style={styles.container}>
                     <View style={styles.semiContainer}>
                         <View >
                             <Text style={styles.numOfCards}>
@@ -61,16 +64,17 @@ class Deck extends Component {
                             </TouchableOpacity>
                         </View>
                     </View>
-                </View>) : (<View></View>)}
+                </View>) : (<Loader />)}
+                    </Fragment>)
+                }
             </View>
         );
     }
 }
-const mapStateToProps = (state, ownProps) => {
-    const id = ownProps.navigation.state.params.id;
-    specificDeck = state.deck.allDecks.find(v => v.title === id)
+const mapStateToProps = (state) => {
     return {
-        specificDeck
+        specificDeck: state.deck.indiDeck,
+        loader: state.deck.loader_GET_DECK,
     }
 }
 

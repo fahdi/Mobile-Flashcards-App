@@ -1,10 +1,10 @@
 const Types = {
     addDeck: "ADDING_DECKS",
     getDecks: "FETCHING_ALL_DECKS",
+    getDeck: "FETCHING_INDIVIDUAL_DECK",
     deleteDeck: "REMOVING_DECK",
     addcard: "ADDING_CARD",
     errorOfGetDecks: "ERROR_OF_GET_DECKS",
-    errorOfAddDeck: "ERROR_OF_ADD_DECK",
-    errorOfAddCard: "ERROR_OF_ADD_CARD",
+    errorOfGetDeck: "ERROR_OF_GET_DECK",
 };
 export default Types;

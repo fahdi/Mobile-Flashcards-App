@@ -56,7 +56,8 @@ class Quizes extends Component {
             correct: false,
             lastQuestion: false,
             score: 0,
-            questionNumber: 0,})
+            questionNumber: 0,
+        })
     }
     render() {
         const {questionNumber, incorrect, correct} = this.state;
@@ -94,16 +95,9 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = (state, ownProps) => {
-        const title = ownProps.navigation.state.params.id;
-        const Questions = state.deck.allDecks.find(v => v.title === title).questions;
+const mapStateToProps = (state) => {
     return{
-        Questions
+        Questions: state.deck.indiDeck.questions
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return{
-
-    }
-}
-export default connect( mapStateToProps, mapDispatchToProps )(Quizes);
+export default connect( mapStateToProps)(Quizes);

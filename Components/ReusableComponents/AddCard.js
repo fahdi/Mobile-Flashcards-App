@@ -8,7 +8,7 @@ import {
     KeyboardAvoidingView
 } from "react-native";
 import { connect } from 'react-redux';
-import { ADD_CARD } from '../../Store/Actions/DeckActions';
+import { ADD_CARD, Get_Deck } from '../../Store/Actions/DeckActions';
 
 class AddCard extends Component {
     state = {
@@ -18,6 +18,7 @@ class AddCard extends Component {
     whenSubmit = () => {
         this.props.addCard(this.props.deck, {question: this.state.que, answer: this.state.ans});
         this.setState({ que: '', ans: ''})
+        this.props.getDeck(this.props.deck.title)
         this.props.navigation.navigate("Deck", {id: this.props.deck.title})
     }
     static navigationOptions = ({ navigation }) => ({
@@ -64,6 +65,7 @@ class AddCard extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         addCard : (deck, cardobj) => dispatch(ADD_CARD(deck, cardobj)),
+        getDeck: (title) => dispatch(Get_Deck(title)),
     }
 }
 
@@ -126,11 +128,9 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = (state, ownProps) => {
-    const id = ownProps.navigation.state.params.id;
-    const deck = state.deck.allDecks.find(v => v.title === id)
+const mapStateToProps = (state) => {
     return {
-        deck,
+        deck: state.deck.indiDeck,
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(AddCard);
