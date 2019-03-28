@@ -8,7 +8,7 @@ class Deck extends Component {
     static navigationOptions = ({ navigation }) => ({
         title: navigation.state.params.id,
         headerStyle: {
-            height: 25,
+            height: 30,
           },
     })
     state = {

@@ -9,7 +9,7 @@ class Quizes extends Component {
     static navigationOptions = ({ navigation }) => ({
         title: `${navigation.state.params.id} Quiz`,
         headerStyle: {
-            height: 25,
+            height: 30,
           },
     })
 

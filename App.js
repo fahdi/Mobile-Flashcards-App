@@ -3,21 +3,45 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import TabNavigator from './Components/Navigations/TabNavigator';
 import { Provider } from "react-redux";
 import store from "./Store";
-import Statusbar from './Components/ReusableComponents/StatusBar';
-import { Constants } from 'expo';
+import { Constants, Notifications, Permissions } from 'expo';
+import Statusbar from './Components/Statusbar';
+
 class App extends React.Component {
   state = { showNav: false }
   whenPress = () => {
     this.setState({ showNav: true })
   }
+  /* componentDidMount() {
+    this.localNotification();
+  }
+  localNotification = () => {
+    const localNotification = {
+      title: 'Reminder for study',
+      body: "Seems like you didn't study whole day, open app study now.",
+      ios: { sound: true },
+      android: {
+        channelId: 'reminder',
+        color: 'grey',
+      }
+    };
+    const schedulingOptions = {
+      time: new Date(),
+      repeat: 'minute',
+
+    }
+    Notifications.scheduleLocalNotificationAsync(
+      localNotification, schedulingOptions
+  );
+  } */
+  
   render() {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <View style={{ 
-            backgroundColor: "black", 
+          <View style={{
+            backgroundColor: "black",
             height: 23,
-            borderWidth:1}}>
+          }}>
             <Statusbar />
           </View>
           {this.state.showNav ? (<View style={{ flex: 2 }}>

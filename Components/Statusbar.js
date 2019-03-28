@@ -4,8 +4,7 @@ const Statusbar = () => {
     return (
         <StatusBar 
         backgroundColor={'black'}
-        barStyle={'dark-content'} 
-        translucent={true}
+        barStyle={'light-content'}
         />
     );
 }
