@@ -16,13 +16,20 @@ class AddCard extends Component {
         ans: '',
     }
     whenSubmit = () => {
+        if(this.state.que === "" || this.state.ans === ""){
+            alert("Both fields are required.");
+            return
+        }
         this.props.addCard(this.props.deck, {question: this.state.que, answer: this.state.ans});
         this.setState({ que: '', ans: ''})
         this.props.getDeck(this.props.deck.title)
         this.props.navigation.navigate("Deck", {id: this.props.deck.title})
     }
     static navigationOptions = ({ navigation }) => ({
-        title: navigation.state.params.id
+        title: navigation.state.params.id,
+        headerStyle: {
+            height: 25,
+          },
     })
     render() {
         return (
@@ -85,7 +92,7 @@ const styles = StyleSheet.create({
     },
     card: {
         minHeight: 300,
-        width: 350,
+        width: 330,
         borderColor: "grey",
         borderStyle: "solid",
         borderWidth: 1,

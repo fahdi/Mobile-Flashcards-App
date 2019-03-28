@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ScrollView, FlatList } from "react-native";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 import DeckList from './ReusableComponents/DeckList';
 import { connect } from 'react-redux';
 import { Get_All_Decks, Get_Deck } from '../Store/Actions/DeckActions';
@@ -33,7 +33,7 @@ class Decks extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 30,
+        paddingTop: 5,
         justifyContent: "space-around",
         alignItems: 'center',
         maxHeight: 700,

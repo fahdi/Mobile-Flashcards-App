@@ -15,6 +15,11 @@ const StackNavigation = createStackNavigator(
     },
         Deck: {
             screen: Deck,
+            navigationOptions: {
+                headerStyle: {
+                    height: 25,
+                  },
+            }
         },
         'Add Card': {
             screen: AddCard,

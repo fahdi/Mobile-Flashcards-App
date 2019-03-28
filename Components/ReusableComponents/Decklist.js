@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity,} from "react-native";
 
 const DeckList = (props) => {
     const { value, wp } = props;
@@ -24,6 +24,8 @@ const DeckList = (props) => {
 const styles = StyleSheet.create({
     container: {
         width: 250,
+        maxWidth: 350,
+        minWidth: 150,
         backgroundColor: "white",
         borderWidth: 10,
         borderStyle: "solid",

@@ -8,6 +8,7 @@ import {
     TouchableOpacity,
     KeyboardAvoidingView
 } from "react-native";
+
 import { Add_Deck, Get_Deck } from '../Store/Actions/DeckActions';
 
 class AddDeck extends Component {
@@ -18,6 +19,15 @@ class AddDeck extends Component {
         this.setState({ title: value })
     }
     whenSubmit = () => {
+        if(this.state.title === ""){
+            alert("Deck title can't be empty.");
+            return;
+        }
+        const check = this.props.allDecks.some(v => v.title === this.state.title)
+        if(check){
+            alert(`This title '${this.state.title}' deck is already in decks.`);
+            return
+        }
         this.props.addDeck(this.state.title);
         this.setState({ title: '' });
         this.props.navigation.navigate("Deck", { id: this.state.title })
@@ -69,12 +79,13 @@ const styles = StyleSheet.create({
     },
     card: {
         minHeight: 300,
-        width: 350,
+        width: 330,
         borderColor: "grey",
         borderStyle: "solid",
         borderWidth: 1,
         borderRadius: 15,
         elevation: 1,
+        backgroundColor: "white",
     },
     container: {
         flex: 1,
@@ -121,7 +132,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        
+        allDecks: state.deck.allDecks,
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddDeck);

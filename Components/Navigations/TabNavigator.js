@@ -2,7 +2,6 @@ import React from 'react';
 import { AntDesign } from '@expo/vector-icons'
 import { createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
 import AddDeck from '../AddDeck';
-import Decks from "../Decks";
 import StackNavigation from './StackNavigation';
 const TabNavigator = createMaterialTopTabNavigator(
     {   'Decks' : StackNavigation,

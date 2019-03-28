@@ -6,7 +6,10 @@ import Loader from './Loader';
 
 class Deck extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: navigation.state.params.id
+        title: navigation.state.params.id,
+        headerStyle: {
+            height: 25,
+          },
     })
     state = {
         noCards: false,
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         minHeight: 400,
-        paddingTop: 20
+        paddingTop: 15,
     },
     semiContainer: {
         flex: 1,

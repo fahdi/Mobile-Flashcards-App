@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {View, Text, StyleSheet} from "react-native";
+import {View, StyleSheet} from "react-native";
 import Quiz from './ReusableComponents/Quiz';
 import Result from './ReusableComponents/Result';
 
 class Quizes extends Component {
 
     static navigationOptions = ({ navigation }) => ({
-        title: `${navigation.state.params.id} Quiz`
+        title: `${navigation.state.params.id} Quiz`,
+        headerStyle: {
+            height: 25,
+          },
     })
 
     state = { 
