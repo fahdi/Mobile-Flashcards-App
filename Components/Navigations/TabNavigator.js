@@ -30,15 +30,14 @@ const TabNavigator = createMaterialTopTabNavigator(
             },
             tabStyle: {
                 width: 200,
-
             },
             style: {
                 backgroundColor: 'black',
                 borderRadius: 10,
             },
             indicatorStyle: {
-                backgroundColor: 'orange',
-            }
+                backgroundColor: 'white',
+            },
         },
     },
 );

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 const Quiz = (props) => {
-    const { num, total, question, answer, incorrect, correct, showAns, selAns, next} = props;
+    const { num, total, question, answer, incorrect, correct, showAns, selAns, next, showAnswer, showAnswerFlag} = props;
     return (
         <View style={styles.container}>
             <View style={styles.card}>
@@ -13,29 +13,37 @@ const Quiz = (props) => {
                 <View style={styles.semiContainer}>
                     <View style={styles.questionContainer}>
                         <Text style={styles.Text}>
-                        {question}
+                        Q: {question}
                         </Text>
                     </View>
-                    <View style={incorrect ? [styles.buttonContainer, styles.correct] : styles.buttonContainer}>
-                        <TouchableOpacity onPress={() => selAns("incorrect", answer)}>
-                            <Text style={styles.buttonText}>
-                                Incorrect
+                    {
+                        showAnswer ? (<View style={styles.ansContainer}>
+                            <Text style={styles.ansText}>A: <Text style={{fontStyle: "italic"}}> {answer} </Text>
                             </Text>
-                        </TouchableOpacity>
                         </View>
-                        <View style={correct ? [styles.buttonContainer, styles.correct] : styles.buttonContainer}>
-                        <TouchableOpacity onPress={() => selAns("correct", answer)}>
-                            <Text style={styles.buttonText}>
-                                Correct
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
+                        ) : (<Fragment>
+                        <View style={incorrect ? [styles.buttonContainer, styles.correct] : styles.buttonContainer}>
+                            <TouchableOpacity onPress={() => selAns("incorrect", answer)}>
+                                <Text style={styles.buttonText}>
+                                    Incorrect
+                                </Text>
+                            </TouchableOpacity>
+                            </View>
+                            <View style={correct ? [styles.buttonContainer, styles.correct] : styles.buttonContainer}>
+                            <TouchableOpacity onPress={() => selAns("correct", answer)}>
+                                <Text style={styles.buttonText}>
+                                    Correct
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                        </Fragment>)
+                    }
                     <View style={styles.answerContainer}>
-                        <TouchableOpacity onPress={() => showAns(answer)}>
+                        {showAnswerFlag && <TouchableOpacity onPress={() => showAns()}>
                             <Text style={styles.answerText}>
                                 Answer
                             </Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity>}
                         <TouchableOpacity onPress={() => next(num)} >
                             <Text style={styles.answerText}>
                                 Next
@@ -49,6 +57,15 @@ const Quiz = (props) => {
 }
 
 const styles = StyleSheet.create({
+    ansContainer: {
+        width: 250,
+        minWidth: 100, 
+        maxWidth: 260,
+    },
+    ansText: {
+        color: 'white',
+        fontSize: 20,
+    },
     container: {
         flex: 1,
         justifyContent: 'center',

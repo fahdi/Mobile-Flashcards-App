@@ -19,12 +19,14 @@ class Quizes extends Component {
         lastQuestion: false,
         score: 0,
         questionNumber: 0,
+        showAnswer: false,
+        showAnswerFlag: true,
     }
     selectedAnswer = (selectedAnswer, answer,) => {
         if(this.state.incorrect || this.state.correct){
             return
         }
-        else if(selectedAnswer === answer){
+        else if(answer === "correct"){
             this.setState({[selectedAnswer] : true, score: this.state.score+1})
         }
         else{
@@ -33,22 +35,15 @@ class Quizes extends Component {
     }
     next = (quenum) => {
          if(quenum === this.props.Questions.length){
-            this.setState({lastQuestion: true, incorrect: false, correct: false})
+            this.setState({lastQuestion: true, incorrect: false, correct: false, showAnswer: false, showAnswerFlag: true})
         }
         else{
-            this.setState({questionNumber: this.state.questionNumber+1, incorrect: false, correct: false})
+            this.setState({questionNumber: this.state.questionNumber+1, incorrect: false, correct: false, 
+                showAnswer: false, showAnswerFlag: true})
         }  
     }
-    showAnswer = (answer) => {
-        if(this.state.incorrect || this.state.correct){
-            return
-        }
-        else if(answer === "correct"){
-            this.setState({correct: true})
-        }
-        else if(answer === "incorrect"){
-            this.setState({incorrect: true})
-        }
+    showAnswer = () => {
+        this.setState({showAnswer: true, showAnswerFlag: false})
     }
     whenBackToStart = () => {
         const navi = this.props.navigation;
@@ -85,6 +80,8 @@ class Quizes extends Component {
                 showAns={this.showAnswer}
                 selAns={this.selectedAnswer}
                 next={this.next}
+                showAnswer={this.state.showAnswer}
+                showAnswerFlag={this.state.showAnswerFlag}
                 />)}
             </View>
         );
