@@ -19,26 +19,43 @@ After the server has started, hit `a` to run it through the android emulator or 
 
 ## Welcome Page
 When the app first loads you will be presented with a welcome page.
+
 <img src="AppSS/1.png" height="300" />
 
 ## Decks Tab
-By clicking on continue button you will be prestened with the Decks screen which will display a list of all of your Decks. If this is your first time using the app, you should be see the message "No Decks avaiable.".
-<img sec="AppSS/2.png" height="250" />
+By clicking on continue button you will be prestened with the Decks screen which will display a list of all of your Decks. If this is your first time using the app, you should be see the message `No Decks avaiable.`.
+
+<img src="AppSS/2.png" height="250" />
 
 ## Add Deck Tab
-To create a new deck, click the "Add Deck", button at the bottom right corner. You will be presented with dialog box. Enter the title of your new deck, and press "Submit".
+To create a new deck, click the `Add Deck`, button at the bottom right corner. You will be presented with dialog box. Enter the title of your new deck, and press `Submit`.
 
-## Add Card
+<img src="AppSS/3.png" height="250"/>
+
+## Deck View
 After creating a deck, you will be taken to the Deck view. It is also possible to get to the Deck view from clicking on the desired deck from the Decks view. From the deck view, you will see a num of all of the cards create for the current deck.
 
+<img src="AppSS/4.png" height="250"/>
+
+## Add Card
 To create a new card, click on the plus `Add Card` button. You will be taken to the Add Card view. Here you will be able asked to provide a question and an answer. Clicking the `Submit` button will save the card to the deck and open Deck View again.
 
-## Start Quiz
-A quiz is the process of reviewing each card in a specific deck. To take a quiz, click the "Start Quiz" button on the Deck view.
+<img src="AppSS/7.png" height="250"/>
 
-Each question is displayed one at a time. After a guess at the answer has been made, you can indicate whether or not your guess was correct using the correct, or incorrect buttons. The answer to each question can be displayed using the "Answer" button. Clicking next btton will display the next question.
+
+## Start Quiz
+A quiz is the process of reviewing each card in a specific deck. To take a quiz, click the `Start Quiz` button on the Deck view.
+
+Each question is displayed one at a time. After a guess at the answer has been made, you can indicate whether or not your guess was correct using the correct, or incorrect buttons. The answer to each question can be displayed using the `Answer` button. Clicking next btton will display the next question.
+
+<img src="AppSS/5.png" height="250"/>
+
+## Result
 
 After all the cards have been presented, your final score will be displayed. From there you will be able to return back to the Deck view or Restart the Quiz.
+
+<img src="AppSS/6.png" height="250"/>
+
 
 ### Deleting a Deck
 If you wish to delete a previously created deck and all the associated cards, click on the desire deck and click the "Delete" button.
