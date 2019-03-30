@@ -25,7 +25,9 @@ class AddDeck extends Component {
         }
         const check = this.props.allDecks.some(v => v.title === this.state.title)
         if(check){
-            alert(`This title '${this.state.title}' deck is already in decks.`);
+            this.props.navigation.navigate("Deck", { id: this.state.title })
+            this.setState({ title: '' });
+            this.props.getDeck(this.state.title);
             return
         }
         this.props.addDeck(this.state.title);

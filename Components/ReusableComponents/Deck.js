@@ -11,21 +11,13 @@ class Deck extends Component {
             height: 30,
           },
     })
-    state = {
-        noCards: false,
-    }
     whenAddCard = () => {
         const navi = this.props.navigation;
         navi.navigate("Add Card", { id: navi.state.params.id })
     }
     whenStartQuiz = () => {
-        if (this.props.specificDeck.questions.length !== 0) {
             const navi = this.props.navigation;
             navi.navigate("Quizes", { id: navi.state.params.id })
-        }
-        else { 
-            this.setState({noCards: true})
-        }
     }
     whenDelete = () => {
         this.props.delDeck(this.props.navigation.state.params.id)
@@ -49,13 +41,6 @@ class Deck extends Component {
                                 <Text style={styles.buttonText}>Start Quiz</Text>
                             </TouchableOpacity>
                         </View>
-                        {this.state.noCards && <View style={styles.showMessage}>
-                            <TouchableOpacity onPress={() => this.setState({noCards: false})}>
-                            <Text style={styles.showMessageText}>
-                            Sorry, you can't take a quiz because there are no cards in the deck.
-                            </Text> 
-                            </TouchableOpacity>
-                        </View>}
                         <View style={styles.buttonContainer}>
                             <TouchableOpacity onPress={this.whenAddCard}>
                                 <Text style={styles.buttonText}>Add Card</Text>
@@ -124,22 +109,6 @@ const styles = StyleSheet.create({
         elevation: 1,
     },
     buttonText: {
-        color: "white",
-        fontSize: 15
-    },
-    showMessage: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        borderColor: "#757575",
-        borderRadius: 10,
-        borderStyle: "solid",
-        borderWidth: 5,
-        width: 250,
-        height: 50,
-        backgroundColor: "#757575"
-    },
-    showMessageText: {
         color: "white",
         fontSize: 15
     },

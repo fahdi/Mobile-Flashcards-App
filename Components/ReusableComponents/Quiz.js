@@ -58,9 +58,16 @@ const Quiz = (props) => {
 
 const styles = StyleSheet.create({
     ansContainer: {
+        minHeight: 50,
+        height: 100,
+        maxHeight: 150,
+        minWidth: 180,
         width: 250,
-        minWidth: 100, 
-        maxWidth: 260,
+        maxWidth: 280,
+        display:"flex",
+        justifyContent: "center",
+        alignItems: "center",
+        lineHeight: 2
     },
     ansText: {
         color: 'white',

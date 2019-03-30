@@ -3,8 +3,8 @@
   "expoServerPort": 19000,
   "expoServerNgrokUrl": "https://sw-vny.anonymous.fc.exp.direct",
   "packagerNgrokUrl": "https://packager.sw-vny.anonymous.fc.exp.direct",
-  "ngrokPid": 768,
+  "ngrokPid": 8152,
   "packagerPort": 19001,
-  "packagerPid": 8720,
+  "packagerPid": 17840,
   "devToolsPort": 19002
 }

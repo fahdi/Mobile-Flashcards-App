@@ -51,7 +51,7 @@ class AddCard extends Component {
                             </View>
                             <View style={styles.TextContainer}>
                                 <TextInput
-                                    placeholder="Enter answer. . . ."
+                                    placeholder="Enter answer"
                                     value={this.state.ans}
                                     onChangeText={(value) => {this.setState({ans: value})}}
                                 />
