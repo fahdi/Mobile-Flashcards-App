@@ -13,7 +13,7 @@ const DeckList = (props) => {
                 </View>
                 <View style={styles.semiContainers}>
                     <Text style={styles.num}>
-                        {value.questions.length} cards
+                        { value.questions.length } cards
                     </Text>
                 </View>
             </TouchableOpacity>

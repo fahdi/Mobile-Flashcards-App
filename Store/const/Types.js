@@ -6,5 +6,6 @@ const Types = {
     addcard: "ADDING_CARD",
     errorOfGetDecks: "ERROR_OF_GET_DECKS",
     errorOfGetDeck: "ERROR_OF_GET_DECK",
+    saveQuizDate: "SAVING_ATTEMPTED_QI=UIZ_DATE",
 };
 export default Types;

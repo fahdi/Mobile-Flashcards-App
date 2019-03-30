@@ -4,9 +4,9 @@ import { View, StyleSheet } from "react-native";
 import Quiz from './ReusableComponents/Quiz';
 import Result from './ReusableComponents/Result';
 import NoCard from './ReusableComponents/NoCard';
+import { SaveQuizDate } from '../Store/Actions/notiActions';
 
 class Quizes extends Component {
-
     static navigationOptions = ({ navigation }) => ({
         title: `${navigation.state.params.id} Quiz`,
         headerStyle: {
@@ -23,6 +23,11 @@ class Quizes extends Component {
         showAnswer: false,
         showAnswerFlag: true,
     }
+    
+    componentDidMount(){
+        this.props.saveQuizDate();
+    }
+
     selectedAnswer = (selectedAnswer, answer, ) => {
         if (this.state.incorrect || this.state.correct) {
             return
@@ -36,6 +41,7 @@ class Quizes extends Component {
     }
     next = (quenum) => {
         if (quenum === this.props.Questions.length) {
+            
             this.setState({ lastQuestion: true, incorrect: false, correct: false, showAnswer: false, showAnswerFlag: true })
         }
         else {
@@ -103,4 +109,10 @@ const mapStateToProps = (state) => {
         Questions: state.deck.indiDeck.questions
     }
 }
-export default connect(mapStateToProps)(Quizes);
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        saveQuizDate: () =>  dispatch(SaveQuizDate()),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Quizes);

@@ -4,14 +4,14 @@ import TabNavigator from './Components/Navigations/TabNavigator';
 import { Provider } from "react-redux";
 import store from "./Store";
 import Statusbar from './Components/Statusbar';
-
+import {SetNotifications} from "./Store/Actions/notiActions"
 class App extends React.Component {
   whenPress = () => {
     this.setState({ showNav: true})
   }
 
   componentDidMount() {
-      
+      SetNotifications();
   }
   render() {
     return (

@@ -1,5 +1,6 @@
 import Types from "../const/Types";
 import { AsyncStorage } from "react-native";
+
 export const Add_Deck = (title) => {
     return dispatch => {
         AsyncStorage.setItem(title, JSON.stringify({ title: title, questions: [] }), (err, data) => {
@@ -15,8 +16,12 @@ export const Add_Deck = (title) => {
 export const Get_All_Decks = () => {
     return dispatch => {
         AsyncStorage.getAllKeys().then(v => {
-            AsyncStorage.multiGet(v, (err, data) => {
+            if(v === "QuizAttemptedDate"){}
+            AsyncStorage.multiGet(v, (err, da) => {
                 if (!err) {
+                    console.log("all data ", da)
+                    const data = da.filter(j => j[0] !== "QuizAttemptedDate")
+                    console.log("filtered data ", data)
                     const TemArr = []
                     data.map(d => {
                         let obj = JSON.parse(d[1])
