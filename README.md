@@ -44,26 +44,26 @@ If there is no card you should be see the message.
 
 <img src="AppSS/5.png" height="250"/>
 
-Each question is displayed one at a time. After a guess at the answer has been made, you can indicate whether or not your guess was correct using the correct, or incorrect buttons. 
+Each question is displayed one at a time. After a guess at the answer has been made, you can indicate whether or not your guess was correct using the `correct`, or `incorrect` buttons. 
 
 <img src="AppSS/6.png" height="250"/>
 
-The answer to each question can be displayed using the `Answer` button. Clicking next btton will display the next question.
+The answer to each question can be displayed using the `Answer` button. Clicking `Next` btton will display the next question.
 
 <img src="AppSS/7.png" height="250"/>
 
 
 ## Result
 
-After all the cards have been presented, your final score will be displayed. From there you will be able to return back to the Deck view or Restart the Quiz.
+After all the cards have been presented, your final score will be displayed. From there you will be able to return `back to the Deck view` or `Restart the Quiz`.
 
 <img src="AppSS/8.png" height="250"/>
 
 
 ### Deleting a Deck
-If you wish to delete a previously created deck and all the associated cards, click on the desire deck and click the "Delete" button.
+If you wish to delete a previously created deck and all the associated cards, click on the desire deck and click the `Delete` button.
 
 ### Notifications
-If notifications permissions are granted, a daily reminder will be set to alert you everyday at 9:00 AM if you have not completed a quiz.
+If notifications permissions are granted, a daily reminder will be set to alert you everyday at 9:00 AM, if you haven't completed a quiz.
 
 
