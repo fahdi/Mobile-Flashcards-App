@@ -17,13 +17,8 @@ After the server has started, hit `a` to run it through the android emulator or 
 
 # How to use app:
 
-## Welcome Page
-When the app first loads you will be presented with a welcome page.
-
-<img src="AppSS/1.png" height="300" />
-
 ## Decks Tab
-By clicking on continue button you will be prestened with the Decks screen which will display a list of all of your Decks. If this is your first time using the app, you should be see the message `No Decks avaiable.`.
+When the app first loads you will be presented with the Decks screen which will display a list of all of your Decks. If this is your first time using the app, you should be see the message `No Decks avaiable.`.
 
 <img src="AppSS/2.png" height="250" />
 
