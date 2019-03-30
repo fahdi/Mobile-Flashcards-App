@@ -29,10 +29,11 @@ class Quizes extends Component {
     }
 
     selectedAnswer = (selectedAnswer, answer, ) => {
+        console.log(answer)
         if (this.state.incorrect || this.state.correct) {
             return
         }
-        else if (answer === "correct") {
+        else if (selectedAnswer === "correct") {
             this.setState({ [selectedAnswer]: true, score: this.state.score + 1 })
         }
         else {
@@ -40,8 +41,8 @@ class Quizes extends Component {
         }
     }
     next = (quenum) => {
+        console.log(this.state.score)
         if (quenum === this.props.Questions.length) {
-            
             this.setState({ lastQuestion: true, incorrect: false, correct: false, showAnswer: false, showAnswerFlag: true })
         }
         else {

@@ -19,9 +19,7 @@ export const Get_All_Decks = () => {
             if(v === "QuizAttemptedDate"){}
             AsyncStorage.multiGet(v, (err, da) => {
                 if (!err) {
-                    console.log("all data ", da)
                     const data = da.filter(j => j[0] !== "QuizAttemptedDate")
-                    console.log("filtered data ", data)
                     const TemArr = []
                     data.map(d => {
                         let obj = JSON.parse(d[1])

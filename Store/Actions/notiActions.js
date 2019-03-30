@@ -27,8 +27,6 @@ export const SetNotifications = () => {
     Permissions.askAsync(Permissions.NOTIFICATIONS)
         .then(({ status }) => {
             if (Constants.isDevice && status === 'granted') {
-                console.log('Notification permissions granted.')
-
                 Notifications.cancelAllScheduledNotificationsAsync()
                     .then((result) => {
                         console.log("All notification cancelled initially", result)
